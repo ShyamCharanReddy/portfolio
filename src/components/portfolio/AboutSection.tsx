@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Brain, Code, Rocket } from "lucide-react";
+import { Brain, Code, Rocket, Smartphone } from "lucide-react";
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -67,7 +67,19 @@ const AboutSection = () => {
             </div>
 
             <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-blue transition-all duration-300">
-              <div className="p-3 rounded-lg bg-primary/10 text-primary">
+            <div className="p-3 rounded-lg bg-primary/10 text-primary">
+              <Smartphone size={24} /> 
+            </div>
+            <div>
+              <h4 className="font-bold">App Developer</h4>
+              <p className="text-sm text-muted-foreground">
+                Building end-to-end mobile applications with Kotlin, Jetpack Compose, and Firebase integration.
+              </p>
+            </div>
+          </div>
+
+            <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-green transition-all duration-300">
+              <div className="p-3 rounded-lg bg-secondary/10 text-secondary">
                 <Rocket size={24} />
               </div>
               <div>

@@ -4,7 +4,7 @@ const categories = [
   {
     title: "Languages",
     color: "primary",
-    items: ["C++", "Java", "Python", "HTML", "CSS", "JavaScript"],
+    items: ["C++", "Java", "Python", "HTML", "CSS", "JavaScript", "Kotlin"],
   },
   {
     title: "Frameworks",
@@ -22,7 +22,7 @@ const TechStackSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="techstack" className="py-24">
+    <section id="techstack" className="py-24 min-h-screen flex items-center">
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${

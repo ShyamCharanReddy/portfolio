@@ -1,24 +1,26 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
     title: "Interactive Meme Editor & Generator",
     tech: "React · Firebase · Canvas API",
     description:
-      "A single-page application for creating and editing memes with real-time canvas manipulation using react-draggable and Imgflip API integration for meme templates.",
+      "A dynamic web platform enabling users to create custom memes with complex canvas manipulations. Features include drag-and-drop text positioning, real-time font styling, and seamless integration with the Imgflip API for trending templates.",
     tags: ["ReactJS", "Firebase", "react-draggable", "Imgflip API", "SPA"],
     color: "primary" as const,
     github: "https://github.com/ShyamCharanReddy",
+    demo: "https://bucolic-chaja-e923e7.netlify.app/", 
   },
   {
     title: "NLP Review Comprehension (MRC)",
     tech: "Python · NLTK · Machine Learning",
     description:
-      "A machine reading comprehension pipeline for analyzing product reviews using VADER and Roberta sentiment analysis models, with Matplotlib visualizations for insights.",
+      "An advanced sentiment analysis pipeline that processes product reviews using VADER and Roberta models. It extracts latent customer pain points and provides data-driven insights through comprehensive Matplotlib visualizations.",
     tags: ["Python", "NLTK", "VADER", "Roberta", "Matplotlib"],
     color: "secondary" as const,
     github: "https://github.com/ShyamCharanReddy",
+    demo: "", // Empty string so the icon doesn't show
   },
 ];
 
@@ -26,7 +28,7 @@ const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 min-h-screen flex items-center">
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -62,15 +64,30 @@ const ProjectsSection = () => {
                 <h3 className="text-xl font-bold text-foreground group-hover:text-gradient transition-all">
                   {project.title}
                 </h3>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors mt-1 shrink-0"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Github size={18} />
-                </a>
+                <div className="flex gap-3 mt-1 shrink-0">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    title="View Source"
+                  >
+                    <Github size={18} />
+                  </a>
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                      title="Live Demo"
+                    >
+                      <ExternalLink size={18} />
+                    </a>
+                  )}
+                </div>
               </div>
               <p
                 className={`text-sm font-mono mb-3 ${
