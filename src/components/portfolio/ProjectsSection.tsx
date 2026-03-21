@@ -1,15 +1,16 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Github, ExternalLink } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const projects = [
   {
-    title: "Interactive Meme Editor & Generator",
-    tech: "React · Firebase · Canvas API",
+    title: "Interactive Full-Stack Meme Generator",
+    tech: "MERN Stack · JWT Auth · html2canvas",
     description:
-      "A dynamic web platform enabling users to create custom memes with complex canvas manipulations. Features include drag-and-drop text positioning, real-time font styling, and seamless integration with the Imgflip API for trending templates.",
-    tags: ["ReactJS", "Firebase", "react-draggable", "Imgflip API", "SPA"],
+      "A robust full-stack web application enabling users to create, download, and securely save custom memes. Features a modern dark-mode \"glassmorphism\" UI, an interactive canvas editor with drag-and-drop text positioning and color customization, and custom image uploads. Built with secure JWT authentication and MongoDB to provide persistent, personalized user galleries alongside trending templates via the Imgflip API.",
+    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT & bcrypt", "react-draggable", "html2canvas"],
     color: "primary" as const,
-    github: "https://github.com/ShyamCharanReddy",
+    github: "https://github.com/ShyamCharanReddy/meme_generator",
     demo: "https://bucolic-chaja-e923e7.netlify.app/", 
   },
   {
@@ -20,7 +21,7 @@ const projects = [
     tags: ["Python", "NLTK", "VADER", "Roberta", "Matplotlib"],
     color: "secondary" as const,
     github: "https://github.com/ShyamCharanReddy",
-    demo: "", // Empty string so the icon doesn't show
+    demo: "",
   },
 ];
 
@@ -29,6 +30,10 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 cyber-grid"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -49,7 +54,7 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className={`glass rounded-xl p-6 transition-all duration-500 hover:scale-[1.03] group ${
+              className={`cyber-card rounded-xl p-6 transition-all duration-500 hover:scale-105 group interactive-hover ${
                 project.color === "primary"
                   ? "hover:neon-glow-blue"
                   : "hover:neon-glow-green"
@@ -69,7 +74,7 @@ const ProjectsSection = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-125"
                     onClick={(e) => e.stopPropagation()}
                     title="View Source"
                   >
@@ -80,7 +85,7 @@ const ProjectsSection = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-125"
                       onClick={(e) => e.stopPropagation()}
                       title="Live Demo"
                     >

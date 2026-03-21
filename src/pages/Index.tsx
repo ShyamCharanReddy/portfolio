@@ -18,8 +18,6 @@ const Index = () => {
       <AchievementsSection />
       <EducationSection />
       <ContactSection />
-
-      {/* Footer */}
       <footer className="py-8 border-t border-border/30">
         <p className="text-center text-muted-foreground text-sm">
           © 2025 Shyam Charan Reddy Karra. Built with React & Tailwind CSS.

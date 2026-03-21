@@ -1,5 +1,6 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { GraduationCap } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const timeline = [
   {
@@ -26,7 +27,11 @@ const EducationSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="education" className="py-24">
+    <section id="education" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 cyber-grid"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -44,7 +49,6 @@ const EducationSection = () => {
         </p>
 
         <div className="max-w-2xl mx-auto relative">
-          {/* Vertical line */}
           <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-transparent" />
 
           {timeline.map((item, i) => (
@@ -57,12 +61,11 @@ const EducationSection = () => {
               }`}
               style={{ transitionDelay: `${(i + 2) * 150}ms` }}
             >
-              {/* Dot */}
               <div className="absolute left-[14px] top-1 w-5 h-5 rounded-full border-2 border-primary bg-background flex items-center justify-center">
                 <GraduationCap size={10} className="text-primary" />
               </div>
 
-              <div className="glass rounded-xl p-5 hover:neon-glow-blue transition-all duration-300 hover:scale-[1.02]">
+              <div className="cyber-card rounded-xl p-5 hover:neon-glow-blue transition-all duration-300 hover:scale-105 interactive-hover group">
                 <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                 <p className="text-primary text-sm font-mono mb-1">
                   {item.institution}

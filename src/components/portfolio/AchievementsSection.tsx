@@ -1,5 +1,6 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Award, BadgeCheck } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const certifications = [
   {
@@ -23,7 +24,11 @@ const AchievementsSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="achievements" className="py-24">
+    <section id="achievements" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 cyber-grid"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -39,10 +44,8 @@ const AchievementsSection = () => {
         >
           Milestones & credentials
         </p>
-
-        {/* Achievement highlight */}
         <div
-          className={`glass rounded-xl p-6 max-w-2xl mx-auto mb-10 neon-glow-blue transition-all duration-700 delay-200 ${
+          className={`cyber-card rounded-xl p-6 max-w-2xl mx-auto mb-10 neon-glow-blue transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -60,13 +63,11 @@ const AchievementsSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Certifications */}
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {certifications.map((cert, i) => (
             <div
               key={cert.title}
-              className={`glass rounded-xl p-5 transition-all duration-500 hover:scale-105 hover:neon-glow-green ${
+              className={`cyber-card rounded-xl p-5 transition-all duration-500 hover:scale-110 hover:neon-glow-green interactive-hover ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"

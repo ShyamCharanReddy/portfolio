@@ -1,20 +1,31 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Code, Wrench, Database, Cpu } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const categories = [
   {
     title: "Languages",
     color: "primary",
-    items: ["C++", "Java", "Python", "HTML", "CSS", "JavaScript", "Kotlin"],
+    icon: Code,
+    items: ["C++", "Java", "Python", "HTML", "JavaScript", "Kotlin"],
   },
   {
     title: "Frameworks",
     color: "secondary",
+    icon: Database,
     items: ["React", "Vue", "Tailwind CSS", "Bootstrap"],
   },
   {
     title: "Tools",
     color: "primary",
-    items: ["VS Code", "Git/GitHub", "Firebase", "LeetCode", "GeeksforGeeks"],
+    icon: Wrench,
+    items: ["VS Code", "Git/GitHub", "Firebase"],
+  },
+  {
+    title: "AI/ML",
+    color: "secondary",
+    icon: Cpu,
+    items: ["TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy"],
   },
 ];
 
@@ -23,6 +34,10 @@ const TechStackSection = () => {
 
   return (
     <section id="techstack" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 tech-bg"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -39,11 +54,11 @@ const TechStackSection = () => {
           Technologies I work with
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {categories.map((cat, ci) => (
             <div
               key={cat.title}
-              className={`glass rounded-xl p-6 transition-all duration-700 hover:scale-105 ${
+              className={`cyber-card rounded-xl p-6 transition-all duration-700 hover:scale-110 group interactive-hover ${
                 cat.color === "primary" ? "hover:neon-glow-blue" : "hover:neon-glow-green"
               } ${
                 isVisible
@@ -52,13 +67,19 @@ const TechStackSection = () => {
               }`}
               style={{ transitionDelay: `${(ci + 2) * 100}ms` }}
             >
-              <h3
-                className={`text-lg font-semibold mb-4 ${
-                  cat.color === "primary" ? "text-primary" : "text-secondary"
-                }`}
-              >
-                {cat.title}
-              </h3>
+              <div className="flex items-center gap-2 mb-4">
+                <cat.icon
+                  size={20}
+                  className={cat.color === "primary" ? "text-primary" : "text-secondary"}
+                />
+                <h3
+                  className={`text-lg font-semibold ${
+                    cat.color === "primary" ? "text-primary" : "text-secondary"
+                  }`}
+                >
+                  {cat.title}
+                </h3>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {cat.items.map((item) => (
                   <span

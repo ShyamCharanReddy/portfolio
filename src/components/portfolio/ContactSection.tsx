@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -19,7 +20,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 cyber-grid"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -37,10 +42,9 @@ const ContactSection = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className={`glass rounded-xl p-6 space-y-5 transition-all duration-700 delay-200 ${
+            className={`cyber-card rounded-xl p-6 space-y-5 transition-all duration-700 delay-200 interactive-hover ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -88,15 +92,13 @@ const ContactSection = () => {
               Send Message
             </Button>
           </form>
-
-          {/* Contact info */}
           <div
             className={`flex flex-col justify-center gap-6 transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg glass">
+              <div className="p-3 rounded-lg cyber-card">
                 <Mail className="text-primary" size={20} />
               </div>
               <div>
@@ -111,7 +113,7 @@ const ContactSection = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg glass">
+              <div className="p-3 rounded-lg cyber-card">
                 <Phone className="text-primary" size={20} />
               </div>
               <div>
@@ -121,7 +123,7 @@ const ContactSection = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg glass">
+              <div className="p-3 rounded-lg cyber-card">
                 <Linkedin className="text-primary" size={20} />
               </div>
               <div>
@@ -138,7 +140,7 @@ const ContactSection = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg glass">
+              <div className="p-3 rounded-lg cyber-card">
                 <Github className="text-primary" size={20} />
               </div>
               <div>

@@ -1,11 +1,16 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Brain, Code, Rocket, Smartphone } from "lucide-react";
+import DecorativeBackground from "./DecorativeBackground";
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 bg-muted/30">
+    <section id="about" className="py-24 min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10">
+        <DecorativeBackground />
+      </div>
+      <div className="absolute inset-0 -z-10 cyber-grid"></div>
       <div className="container mx-auto px-4" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
@@ -23,7 +28,6 @@ const AboutSection = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-          {/* Text Content */}
           <div
             className={`space-y-6 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
@@ -39,14 +43,12 @@ const AboutSection = () => {
               When I'm not training models or building full-stack apps, you'll find me exploring the latest in Generative AI or designing immersive stories.
             </p>
           </div>
-
-          {/* Cards / Highlights */}
           <div
             className={`grid gap-4 transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-blue transition-all duration-300">
+            <div className="cyber-card p-4 rounded-xl flex items-center gap-4 hover:neon-glow-blue transition-all duration-300 interactive-hover">
               <div className="p-3 rounded-lg bg-primary/10 text-primary">
                 <Brain size={24} />
               </div>
@@ -56,7 +58,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-green transition-all duration-300">
+            <div className="cyber-card p-4 rounded-xl flex items-center gap-4 hover:neon-glow-green transition-all duration-300 interactive-hover\">
               <div className="p-3 rounded-lg bg-secondary/10 text-secondary">
                 <Code size={24} />
               </div>
@@ -66,8 +68,8 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-blue transition-all duration-300">
-            <div className="p-3 rounded-lg bg-primary/10 text-primary">
+            <div className="cyber-card p-4 rounded-xl flex items-center gap-4 hover:neon-glow-blue transition-all duration-300 interactive-hover\">
+            <div className="p-3 rounded-lg bg-primary/10 text-primary\">
               <Smartphone size={24} /> 
             </div>
             <div>
@@ -78,7 +80,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-            <div className="glass p-4 rounded-xl flex items-center gap-4 hover:neon-glow-green transition-all duration-300">
+            <div className="cyber-card p-4 rounded-xl flex items-center gap-4 hover:neon-glow-green transition-all duration-300 interactive-hover\">
               <div className="p-3 rounded-lg bg-secondary/10 text-secondary">
                 <Rocket size={24} />
               </div>
