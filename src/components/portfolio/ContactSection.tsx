@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
-import DecorativeBackground from "./DecorativeBackground";
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -21,11 +20,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24 min-h-screen flex items-center">
-      <div className="absolute inset-0 -z-10">
-        <DecorativeBackground />
-      </div>
-      <div className="absolute inset-0 -z-10 cyber-grid"></div>
-      <div className="container mx-auto px-4" ref={ref}>
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

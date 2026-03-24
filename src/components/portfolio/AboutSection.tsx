@@ -1,17 +1,12 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Brain, Code, Rocket, Smartphone } from "lucide-react";
-import DecorativeBackground from "./DecorativeBackground";
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
     <section id="about" className="py-24 min-h-screen flex items-center">
-      <div className="absolute inset-0 -z-10">
-        <DecorativeBackground />
-      </div>
-      <div className="absolute inset-0 -z-10 cyber-grid"></div>
-      <div className="container mx-auto px-4" ref={ref}>
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <h2
           className={`text-3xl md:text-4xl font-bold text-center mb-4 text-gradient transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

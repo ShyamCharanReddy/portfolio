@@ -7,6 +7,7 @@ const navItems = [
   { label: "Tech Stack", href: "#techstack" },
   { label: "Projects", href: "#projects" },
   { label: "Achievements", href: "#achievements" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -23,8 +24,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "cyber-card neon-glow-blue py-3" : "py-5 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled ? "bg-background/90 backdrop-blur-md border-b border-primary/30 shadow-[0_4px_12px_rgba(0,255,255,0.1)] py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">

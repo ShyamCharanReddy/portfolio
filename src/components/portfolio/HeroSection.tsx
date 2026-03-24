@@ -1,45 +1,22 @@
-import { useTypingAnimation } from "@/hooks/use-scroll-reveal";
 import { Github, Linkedin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpg";
-import DecorativeBackground from "./DecorativeBackground";
 
 const HeroSection = () => {
-  const { displayed, done } = useTypingAnimation(
-    "Shyam Charan Reddy Karra: AI/ML Enthusiast & Full-Stack Developer",
-    50
-  );
-
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
     >
-      <div className="absolute inset-0 -z-10">
-        <DecorativeBackground />
-      </div>
-      <div className="absolute inset-0 -z-10 cyber-grid"></div>
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center relative z-10">
         <div className="mb-8">
           <div className="w-36 h-36 md:w-44 md:h-44 mx-auto rounded-full overflow-hidden border-2 border-primary/50 neon-glow-blue">
             <img src={profilePhoto} alt="Shyam Charan Reddy Karra" className="w-full h-full object-cover" />
           </div>
         </div>
-        <div className="inline-block neon-frame rounded-lg px-6 py-4 mb-8 neon-glow-blue">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-3 h-3 rounded-full bg-destructive/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-secondary/80" />
-          </div>
-          <p className="font-mono text-sm md:text-base text-muted-foreground text-left">
-            <span className="text-secondary">$</span>{" "}
-            <span className="text-foreground">{displayed}</span>
-            <span
-              className={`inline-block w-2 h-5 bg-primary ml-1 align-middle ${
-                done ? "" : "animate-pulse"
-              }`}
-              style={{ animation: "typing-cursor 0.8s infinite" }}
-            />
+        <div className="inline-block px-6 py-2 mb-8 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm neon-glow-blue transition-all duration-300 hover:scale-105 hover:bg-primary/10">
+          <p className="text-sm md:text-base text-primary/90 font-medium tracking-wide">
+            AI/ML Enthusiast & Full-Stack Developer
           </p>
         </div>
 
