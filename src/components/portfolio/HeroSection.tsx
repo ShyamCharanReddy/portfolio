@@ -1,6 +1,6 @@
 import { Github, Linkedin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile_pic.jpeg";
 
 const HeroSection = () => {
   return (
